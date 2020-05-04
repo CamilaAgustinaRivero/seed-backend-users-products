@@ -26,6 +26,35 @@ module.exports = {
                 format: 'uuid'
             }
         },
+        Users: {
+            type: 'object',
+            properties: {
+                id: {
+                    type: 'string',
+                    format: 'uuid',
+                    nullable: true
+                },
+                first_name: {
+                    type: 'string'
+                },
+                last_name: {
+                    type: 'string'
+                },
+                username: {
+                    type: 'string'
+                },
+                email: {
+                    type: 'string'
+                },
+                password: {
+                    type: 'string'
+                },
+                avatar: {
+                    type: 'string'
+                }
+            }
+
+        },
         Error: {
             type: 'object',
             required: [
