@@ -9,6 +9,7 @@ exports.up = function(knex) {
          table.string('email', 255);
          //Como es de prueba guardo la pass sin hash
          table.string('password', 255);
+         table.string('avatar', 255);
          //Parametros que requiere sqlite3
          table.string('code', 255);
          table.string('iso2', 2);

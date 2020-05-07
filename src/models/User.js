@@ -9,6 +9,7 @@ const selectableProps = [
     'username', 
     'email',
     'password',
+    'avatar',
     'code',
     'iso2',
     'deleted'

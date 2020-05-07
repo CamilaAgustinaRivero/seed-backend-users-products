@@ -25,7 +25,7 @@ class UsersController {
     static async create(req, res, next) {
         try {
             const result = await Users.insertOne(req.body);
-            res.send(result);
+            res.send({success: true, result});
         }
         catch (error) {
             next(error);
