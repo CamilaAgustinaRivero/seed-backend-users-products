@@ -24,7 +24,7 @@ class UsersController {
 
     static async create(req, res, next) {
         try {
-            const result = await Users.insertOne(req.body);
+            const result = await User.insertOne(req.body);
             res.send({success: true, result});
         }
         catch (error) {
@@ -34,7 +34,7 @@ class UsersController {
 
     static async save(req, res, next) {
         try {
-            const result = await Users.updateOne({id: req.params.id}, req.body);
+            const result = await User.updateOne({id: req.params.id}, req.body);
             res.send(result);
         }
         catch (error) {
@@ -44,7 +44,7 @@ class UsersController {
 
     static async delete(req, res, next) {
         try {
-            const result = await Users.deleteOne(req.params.id);
+            const result = await User.deleteOne(req.params.id);
             res.send(result);
         }
         catch (error) {
