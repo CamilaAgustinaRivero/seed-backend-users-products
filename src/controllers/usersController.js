@@ -50,7 +50,11 @@ class UsersController {
     static async delete(req, res, next) {
         try {
             const result = await User.deletedOne(req.params.id);
-            res.send(result);
+            res.send(
+                {
+                    success: true,
+                    result
+                });
         }
         catch (error) {
             next(error);
