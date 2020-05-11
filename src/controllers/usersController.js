@@ -4,7 +4,7 @@ const {User} = include('models');
 class UsersController {
     static async fetch (req, res, next) {
         try {
-            const users = await User.find(req.query);
+            const users = await User.find({...req.query, deleted: null});
             res.send(users);
         }
         catch (error) {
@@ -35,7 +35,12 @@ class UsersController {
     static async save(req, res, next) {
         try {
             const result = await User.updateOne({id: req.params.id}, req.body);
-            res.send(result);
+            res.send(
+                {
+                    success: true,
+                    result
+                }
+            );
         }
         catch (error) {
             next(error);
@@ -44,7 +49,7 @@ class UsersController {
 
     static async delete(req, res, next) {
         try {
-            const result = await User.deleteOne(req.params.id);
+            const result = await User.deletedOne(req.params.id);
             res.send(result);
         }
         catch (error) {
